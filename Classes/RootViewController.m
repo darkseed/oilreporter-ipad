@@ -57,13 +57,14 @@
 #pragma mark -
 #pragma mark ReportFetcherDelegate Methods
 
-- (void) reportFetcherDidSucceed:(ReportFetcher *) fetcher 
+- (void) reportFetcherDidSucceed:(ReportFetcher *) _fetcher 
 {
-  if(fetcher.isloadMore) {
-    [self.reports addObjectsFromArray:fetcher.reports];
+  if(_fetcher.isloadMore) {
+    [self.reports addObjectsFromArray:_fetcher.reports];
   } else {
     [self.detailViewController.mapView removeAnnotations:self.detailViewController.storedAnnotations];
-    self.reports = fetcher.reports;
+    self.detailViewController.storedAnnotations = [[NSMutableArray alloc] init];
+    self.reports = _fetcher.reports;
   }
 
   self.detailViewController.reports = self.reports;

@@ -28,6 +28,6 @@
 @protocol ReportFetcherDelegate
 
 @optional
-- (void) reportFetcherDidSucceed:(ReportFetcher *) fetcher;
+- (void) reportFetcherDidSucceed:(ReportFetcher *) _fetcher;
 - (void) reportFetcherDidFail:(ReportFetcher *) fetcher error:(NSError *) error;
 @end
