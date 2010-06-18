@@ -270,6 +270,7 @@
 
   [detailViewController.mapView selectAnnotation:[detailViewController.storedAnnotations objectAtIndex:[indexPath row]]
                                         animated:YES];
+
   [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
   ReportViewController *reportViewController = [[ReportViewController alloc] initWithNibName:@"ReportView" 
                                                                                       bundle:nil 

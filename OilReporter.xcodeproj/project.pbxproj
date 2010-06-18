@@ -97,13 +97,14 @@
 		46CCC6AA11CBD68000DE6B90 /* built_by_intridea_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 46CCC6A911CBD68000DE6B90 /* built_by_intridea_black.png */; };
 		46CCC6F811CBDF6A00DE6B90 /* built_by_intridea_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 46CCC6F711CBDF6A00DE6B90 /* built_by_intridea_big.png */; };
 		46CCC70211CBE09200DE6B90 /* crisis_commons.png in Resources */ = {isa = PBXBuildFile; fileRef = 46CCC70111CBE09200DE6B90 /* crisis_commons.png */; };
+		46CCC75811CC0EBB00DE6B90 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 46CCC75711CC0EBB00DE6B90 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* OilReporterAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OilReporterAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* OilReporterAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OilReporterAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* OilReporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OilReporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Oil Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oil Reporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28042007108E984D000629CD /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		28042008108E984D000629CD /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
@@ -249,6 +250,7 @@
 		46CCC6A911CBD68000DE6B90 /* built_by_intridea_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = built_by_intridea_black.png; sourceTree = "<group>"; };
 		46CCC6F711CBDF6A00DE6B90 /* built_by_intridea_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = built_by_intridea_big.png; sourceTree = "<group>"; };
 		46CCC70111CBE09200DE6B90 /* crisis_commons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crisis_commons.png; sourceTree = "<group>"; };
+		46CCC75711CC0EBB00DE6B90 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* OilReporter-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "OilReporter-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,7 +291,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* OilReporter.app */,
+				1D6058910D05DD3D006BFB54 /* Oil Reporter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -631,6 +633,7 @@
 		469959B611C9B209008FBB7F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				46CCC75711CC0EBB00DE6B90 /* icon.png */,
 				46CCC70111CBE09200DE6B90 /* crisis_commons.png */,
 				46CCC6F711CBDF6A00DE6B90 /* built_by_intridea_big.png */,
 				46CCC6A911CBD68000DE6B90 /* built_by_intridea_black.png */,
@@ -663,7 +666,7 @@
 			);
 			name = "Oil Reporter";
 			productName = OilReporter;
-			productReference = 1D6058910D05DD3D006BFB54 /* OilReporter.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Oil Reporter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -717,6 +720,7 @@
 				46CCC6AA11CBD68000DE6B90 /* built_by_intridea_black.png in Resources */,
 				46CCC6F811CBDF6A00DE6B90 /* built_by_intridea_big.png in Resources */,
 				46CCC70211CBE09200DE6B90 /* crisis_commons.png in Resources */,
+				46CCC75811CC0EBB00DE6B90 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,7 +809,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Classes/ASIHTTPRequest/libGHUnitIPhone3_0-0\"",
 				);
-				PRODUCT_NAME = OilReporter;
+				PRODUCT_NAME = "Oil Reporter";
 			};
 			name = Debug;
 		};
@@ -813,6 +817,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Intridea, Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Intridea, Inc.";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = OilReporter_Prefix.pch;
@@ -821,7 +827,9 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Classes/ASIHTTPRequest/libGHUnitIPhone3_0-0\"",
 				);
-				PRODUCT_NAME = OilReporter;
+				PRODUCT_NAME = "Oil Reporter";
+				PROVISIONING_PROFILE = "9DD24AA0-B6B5-49EA-B6FE-CD8D0055B67C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9DD24AA0-B6B5-49EA-B6FE-CD8D0055B67C";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

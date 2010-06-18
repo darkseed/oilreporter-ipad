@@ -37,18 +37,28 @@
   self.desc.editable = NO;
   
   
-  UIButton *intrideaButton = [[UIButton alloc] initWithFrame:CGRectMake(140, 410, 251, 77)];
+  UIButton *intrideaButton = [[UIButton alloc] initWithFrame:CGRectMake(140, 398, 251, 77)];
   [intrideaButton setImage:[UIImage imageNamed:@"built_by_intridea_big.png"] forState:UIControlStateNormal];
   [intrideaButton addTarget:self action:@selector(launchIntridea:) forControlEvents:UIControlEventTouchUpInside];
-    
-  UIButton *ccButton = [[UIButton alloc] initWithFrame:CGRectMake(140, 510, 251, 77)];
+  
+  UITextView *contact = [[UITextView alloc] initWithFrame:CGRectMake(10, 474, 510, 40)];
+  contact.text = @"Phone: 1-888-968-IDEA (4332)\nE-Mail: info@intridea.com";
+  contact.font = [UIFont fontWithName:@"American Typewriter" size:12.0];
+  contact.textAlignment = UITextAlignmentCenter;
+  contact.backgroundColor = [UIColor clearColor];
+  contact.editable = NO;
+  
+  
+  UIButton *ccButton = [[UIButton alloc] initWithFrame:CGRectMake(140, 530, 251, 77)];
   [ccButton setImage:[UIImage imageNamed:@"crisis_commons.png"] forState:UIControlStateNormal];
   [ccButton addTarget:self action:@selector(launchCrsis:) forControlEvents:UIControlEventTouchUpInside];
 
   [self.view addSubview:intrideaButton];
+  [self.view addSubview:contact];
   [self.view addSubview:ccButton];
   [self.view addSubview:self.desc];
   
+  [contact release];
   [ccButton release];
   [intrideaButton release];
   [super viewDidLoad];

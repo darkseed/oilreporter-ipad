@@ -31,7 +31,6 @@
     
     self.createdAt = [dateFormat dateFromString: [dictionary objectForKey:@"created_at"]];
     
-    NSLog(@"%@", self.createdAt);
     [dateFormat release];
     [enUSPOSIXLocale release];
 
