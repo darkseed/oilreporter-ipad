@@ -171,26 +171,6 @@
   return annView;
 }
 
-- (void) showReportPopover:(id)sender {
-  int position = ((UIButton *)sender).tag;
-  
-	Report *report = (Report *)[self.reports objectAtIndex:position];
-	if(report != nil) {
-    ReportViewController *reportViewController = [[ReportViewController alloc] initWithNibName:@"ReportView" bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:reportViewController];
-    UIPopoverController *reportPopover = [[UIPopoverController alloc] initWithContentViewController:navController];
-
-    CGPoint point = [self.mapView convertCoordinate:[[self.storedAnnotations objectAtIndex:position] coordinate] 
-                      toPointToView:self.view];
-    
-    CGRect popoverRect = CGRectMake(point.x, point.y, 320, 480);  
-
-    [reportPopover setPopoverContentSize:CGSizeMake(320, 400)];
-    [reportPopover presentPopoverFromRect:popoverRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-    
-	}
-}
-
 #pragma mark -
 #pragma mark View lifecycle
 
