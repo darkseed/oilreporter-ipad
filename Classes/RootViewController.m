@@ -261,7 +261,6 @@
   reportViewController.title = @"Report";
   
   [self.navigationController pushViewController: reportViewController animated:YES];
-  [reportViewController release];
 }
 
 
