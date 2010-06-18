@@ -11,6 +11,7 @@
 #import "DetailViewController.h"
 #import "RootViewController.h"
 #import "ReportViewController.h"
+#import "AboutViewController.h"
 #import "Report.h"
 #import "Util.h"
 
@@ -21,7 +22,7 @@
 
 @implementation DetailViewController
 
-@synthesize toolbar, popoverController, detailItem, detailDescriptionLabel, rootViewController, reports, mapView, storedAnnotations;
+@synthesize toolbar, popoverController, detailItem, detailDescriptionLabel, rootViewController, reports, mapView, storedAnnotations, infoButton;
 
 #pragma mark -
 #pragma mark Object insertion
@@ -167,6 +168,17 @@
 //  annView.rightCalloutAccessoryView = rightButton;  
   
   return annView;
+}
+
+#pragma mark -
+#pragma mark About View
+
+- (IBAction)showAboutView:(id)sender {
+  NSLog(@"ABOUT TO LAUNCH");
+  AboutViewController *aboutView = [[AboutViewController alloc] initWithNibName:@"AboutView" bundle:nil];
+  aboutView.modalPresentationStyle = UIModalPresentationFormSheet;
+  [self.parentViewController presentModalViewController:aboutView animated: YES];
+  [aboutView release];
 }
 
 #pragma mark -
