@@ -19,8 +19,6 @@
 - (void)configureView;
 @end
 
-
-
 @implementation DetailViewController
 
 @synthesize toolbar, popoverController, detailItem, detailDescriptionLabel, rootViewController, reports, mapView, storedAnnotations;

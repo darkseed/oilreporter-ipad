@@ -17,6 +17,7 @@
   
   DetailViewController *detailViewController;
   ReportFetcher *fetcher;
+  UIActivityIndicatorView *activityIndicator;
   NSFetchedResultsController *fetchedResultsController;
   NSManagedObjectContext *managedObjectContext;
   NSMutableArray *reports;
@@ -27,6 +28,7 @@
 @property (nonatomic, retain) ReportFetcher *fetcher;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, retain) NSMutableArray *reports;
 
 - (void)insertNewObject:(id)sender;

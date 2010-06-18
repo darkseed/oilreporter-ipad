@@ -63,7 +63,7 @@
 
 + (void) alertNoInternetWithDelegate:(id)delegate {
   [self alertWithTitle:@"Connection Required" 
-               message:@"You must be connected to the Internet to be able to download the latest articles." 
+               message:@"You must be connected to the Internet to be able to view the latest reports." 
               delegate:delegate 
      cancelButtonTitle:@"Okay" 
      otherButtonTitles:nil];     

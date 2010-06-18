@@ -12,6 +12,7 @@
 #import "ReportCell.h"
 #import "LoadingCell.h"
 #import "Report.h"
+#import "ConnectionManager.h"
 #import "Util.h"
 
 @interface RootViewController ()
@@ -20,7 +21,7 @@
 
 @implementation RootViewController
 
-@synthesize detailViewController, fetchedResultsController, managedObjectContext, reports, fetcher;
+@synthesize detailViewController, fetchedResultsController, managedObjectContext, reports, fetcher, activityIndicator;
 
 
 #pragma mark -
@@ -28,18 +29,33 @@
 
 - (void)viewDidLoad 
 {
-  // Start loading the latest reports
-  self.fetcher = [[ReportFetcher alloc] initWithDelegate:self];
-
   self.navigationController.navigationBar.tintColor = [Util colorFromRGB:@"0x0a3054"];
   self.tableView.backgroundColor = [UIColor whiteColor];
   self.clearsSelectionOnViewWillAppear = NO;
   self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
-
-  self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
-                                                                                        target:self 
-                                                                                        action:@selector(reloadReports:)];
   
+  UIBarButtonItem *reloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
+                                                                                target:self 
+                                                                                action:@selector(reloadReports:)];
+  self.navigationItem.leftBarButtonItem = reloadButton;
+  [reloadButton release];
+  
+  self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+  self.activityIndicator.hidesWhenStopped = YES;
+  
+  UIBarButtonItem *activityButton = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
+  self.navigationItem.rightBarButtonItem = activityButton;
+  [activityButton release];
+
+
+  if ([[ConnectionManager defaultManager] connected]) {
+    // Start loading the latest reports
+    self.fetcher = [[ReportFetcher alloc] initWithDelegate:self];
+    [self.activityIndicator startAnimating];
+  } else {
+    [Util alertNoInternetWithDelegate:self];
+  }
+
   NSError *error = nil;
   if (![[self fetchedResultsController] performFetch:&error]) {
       NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -59,10 +75,22 @@
 }
 
 #pragma mark -
+#pragma mark Alert View Delegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+  // Don't need to do anything for now ...
+}
+
+#pragma mark -
 #pragma mark Refreshing Reports
 
 -(void)reloadReports:(id)sender {
-  self.fetcher = [[ReportFetcher alloc] initWithDelegate:self];
+  if ([[ConnectionManager defaultManager] connected]) {
+    self.fetcher = [[ReportFetcher alloc] initWithDelegate:self];
+    [self.activityIndicator startAnimating];
+  } else {
+    [Util alertNoInternetWithDelegate:self];
+  }
 }
 
 #pragma mark -
@@ -77,15 +105,16 @@
     self.detailViewController.storedAnnotations = [[NSMutableArray alloc] init];
     self.reports = _fetcher.reports;
   }
-
+  
+  [self.activityIndicator stopAnimating];
   self.detailViewController.reports = self.reports;
   [self.detailViewController showAnnotations];
   [self.tableView reloadData];
 }
 
-- (void) reportFetcherSucceed:(ReportFetcher *) fetcher 
+- (void) reportFetcherDidFail:(ReportFetcher *) fetcher error:(NSError *) error
 {
-  NSLog(@"Failed");
+  [self.activityIndicator stopAnimating];
 }
 
 
@@ -163,7 +192,11 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  if([self.reports count] > 0) {
     return [self.reports count] + 1;
+  } else {
+    return 0;
+  }
 }
 
 - (UITableViewCell *) showLoadingCell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *) indexPath {
@@ -225,8 +258,13 @@
 //    detailViewController.detailItem = selectedObject;    
   
   if (indexPath.row == [self.reports count]) {
-    self.fetcher = [[ReportFetcher alloc] initLoadMoreWithDelegate:self
-                                                     withTableView:self.tableView];
+    if ([[ConnectionManager defaultManager] connected]) {
+      self.fetcher = [[ReportFetcher alloc] initLoadMoreWithDelegate:self
+                                                       withTableView:self.tableView];
+      [self.activityIndicator startAnimating];
+    } else {
+      [Util alertNoInternetWithDelegate:self];
+    }
     return;
   }
 
@@ -364,6 +402,7 @@
   [managedObjectContext release];
   [reports release];
   [fetcher release];
+  [activityIndicator release];
   [super dealloc];
 }
 
