@@ -179,7 +179,7 @@
   if (indexPath.row == [self.reports count])
     return [self showLoadingCell: tableView cellForRowAtIndexPath: indexPath];
   
-  static NSString *CellIdentifier = @"Cell";  
+  static NSString *CellIdentifier = @"ReportCell";  
   ReportCell *cell = (ReportCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (cell == nil) {
     cell = [[[ReportCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
@@ -194,8 +194,7 @@
   
   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
   
-  if ([[self.reports objectAtIndex:indexPath.row] thumbImage] != nil)
-    [cell setThumbnail:[[self.reports objectAtIndex:indexPath.row] thumbImage]];
+  [cell setThumbnail:[[self.reports objectAtIndex:indexPath.row] thumbImage]];
 
   return cell;
 }
@@ -203,33 +202,6 @@
 - (CGFloat)tableView:(UITableView *)tv heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   return 80;
 }
-//
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        
-//        // Delete the managed object.
-//        NSManagedObject *objectToDelete = [fetchedResultsController objectAtIndexPath:indexPath];
-//        if (detailViewController.detailItem == objectToDelete) {
-//            detailViewController.detailItem = nil;
-//        }
-//        
-//        NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
-//        [context deleteObject:objectToDelete];
-//        
-//        NSError *error;
-//        if (![context save:&error]) {
-//            /*
-//             Replace this implementation with code to handle the error appropriately.
-//             
-//             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-//             */
-//            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//            abort();
-//        }
-//    }   
-//}
-
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // The table view should not be re-orderable.
@@ -242,7 +214,7 @@
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Set the detail item in the detail view controller.
+//    Set the detail item in the detail view controller.
 //    NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
 //    detailViewController.detailItem = selectedObject;    
   

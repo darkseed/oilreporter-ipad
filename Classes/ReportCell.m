@@ -16,8 +16,8 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
   if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
-    thumbView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"missing.png"]];
-    thumbView.frame = CGRectMake(10, 14, 50, 50);
+    self.thumbView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"missing.png"]];
+    self.thumbView.frame = CGRectMake(10, 14, 50, 50);
     
     CALayer *layer = [thumbView layer];
     [layer setMasksToBounds:YES];
@@ -102,6 +102,7 @@
 - (void)dealloc {
   [metaLabel release];
   [descLabel release];
+  [thumbView release];
   [super dealloc];
 }
 
