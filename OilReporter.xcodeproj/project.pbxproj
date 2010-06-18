@@ -91,6 +91,7 @@
 		46CCC42011CB033B00DE6B90 /* graph_paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 46CCC41F11CB033B00DE6B90 /* graph_paper.png */; };
 		46CCC4E211CB16A900DE6B90 /* bg_graph.png in Resources */ = {isa = PBXBuildFile; fileRef = 46CCC4E111CB16A900DE6B90 /* bg_graph.png */; };
 		46CCC54E11CB22E700DE6B90 /* LoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CCC54D11CB22E700DE6B90 /* LoadingCell.m */; };
+		46CCC63311CB3E9400DE6B90 /* built_by_intridea.png in Resources */ = {isa = PBXBuildFile; fileRef = 46CCC63211CB3E9400DE6B90 /* built_by_intridea.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -236,6 +237,7 @@
 		46CCC4E111CB16A900DE6B90 /* bg_graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_graph.png; sourceTree = "<group>"; };
 		46CCC54C11CB22E700DE6B90 /* LoadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingCell.h; sourceTree = "<group>"; };
 		46CCC54D11CB22E700DE6B90 /* LoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingCell.m; sourceTree = "<group>"; };
+		46CCC63211CB3E9400DE6B90 /* built_by_intridea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = built_by_intridea.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* OilReporter-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "OilReporter-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -615,6 +617,7 @@
 		469959B611C9B209008FBB7F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				46CCC63211CB3E9400DE6B90 /* built_by_intridea.png */,
 				46CCC4E111CB16A900DE6B90 /* bg_graph.png */,
 				46CCC41F11CB033B00DE6B90 /* graph_paper.png */,
 				46CCC40C11CB024C00DE6B90 /* report_back.png */,
@@ -692,6 +695,7 @@
 				46CCC40D11CB024C00DE6B90 /* report_back.png in Resources */,
 				46CCC42011CB033B00DE6B90 /* graph_paper.png in Resources */,
 				46CCC4E211CB16A900DE6B90 /* bg_graph.png in Resources */,
+				46CCC63311CB3E9400DE6B90 /* built_by_intridea.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
