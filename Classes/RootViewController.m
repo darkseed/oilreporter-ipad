@@ -47,6 +47,17 @@
   }
 }
 
+
+// Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+  if (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+    self.navigationController.navigationBar.tintColor = nil;
+  else
+    self.navigationController.navigationBar.tintColor = [Util colorFromRGB:@"0x0a3054"];
+  
+  return YES;
+}
+
 #pragma mark -
 #pragma mark Refreshing Reports
 
@@ -99,11 +110,6 @@
     [super viewDidDisappear:animated];
 }
  */
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.    
-    return YES;
-}
 
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
